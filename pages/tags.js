@@ -6,7 +6,12 @@ import { getAllTags } from '@/lib/tags'
 import kebabCase from '@/lib/utils/kebabCase'
 
 export async function getStaticProps() {
-  const tags = await getAllTags('blog')
+  const blogTags = await getAllTags('blog')
+  const weeklyTags = await getAllTags('weekly')
+  const tags = {
+    ...blogTags,
+    ...weeklyTags,
+  }
 
   return { props: { tags } }
 }
