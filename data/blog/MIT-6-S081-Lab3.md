@@ -29,9 +29,9 @@ allocproc(void)
 }
 ```
 
-经过这一步 p->usyscall 已经指向了一个空的内存页了，并且保存了线程 p 的 pid。
+经过这一步 p{'->'}usyscall 已经指向了一个空的内存页了，并且保存了线程 p 的 pid。
 
-下一步是在 proc_pagetable(kernel/proc.c)函数中进行映射，proc_pagetable 函数给线程创建了页表，用于转换虚拟地址到物理地址。mappages 可以将 p->usyscall 的实际物理地址映射到 USYSCALL 指定的虚拟地址上去。
+下一步是在 proc_pagetable(kernel/proc.c)函数中进行映射，proc_pagetable 函数给线程创建了页表，用于转换虚拟地址到物理地址。mappages 可以将 p{'->'}usyscall 的实际物理地址映射到 USYSCALL 指定的虚拟地址上去。
 
 ```c
 pagetable_t
@@ -132,7 +132,7 @@ vmprint(pagetable_t pagetable)
 
 第三个实验要求我们查看哪些内存页有被接触到，实现一个系统调用，接受三个参数。第一个参数是用户页面的起始虚拟地址，第二个参数是需要检查页数，第三个参数是一个数字掩码，通过每一位是 0 或 1 判断内存页是否有接触。
 
-在 sysproc.c 中实现函数，并且在 riscv.h 中定义 PTE_A 为 (1L << 6)。
+在 sysproc.c 中实现函数，并且在 riscv.h 中定义 PTE_A 为 (1L {'<<'} 6)。
 
 ```c
 uint64
