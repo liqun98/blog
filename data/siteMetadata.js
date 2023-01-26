@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'Blog - Liqun Zhao',
   author: 'Liqun Zhao',
-  headerTitle: '',
+  headerTitle: "Liqun's Blog",
   description: '记录代码和生活',
   language: 'zh',
   theme: 'system', // system, dark or light
